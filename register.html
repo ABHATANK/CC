@@ -145,6 +145,8 @@
               lastname: LnameInp.value,
               email: EmailInp.value,
             });
+            alert("User Created")
+            window.location.href = "/index.html";
           })
           .catch((error) => {
             alert(error.message);

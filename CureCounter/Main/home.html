@@ -72,13 +72,8 @@
             <li><a href="#blog" class="smoothScroll">Blog</a></li>
             <li><a href="#price" class="smoothScroll">Explore</a></li>
             <li><a href="#testimonial" class="smoothScroll">Quote</a></li>
-            <li>
-              <a href="/index.html"
-                ><button class="smoothScroll" type="button" id="Signoutbutton">
-                  Sign Out
-                </button></a
-              >
-            </li>
+            <li id="user-icon"></li>
+            
           </ul>
         </div>
       </div>
@@ -635,6 +630,43 @@
 
       window.addEventListener("load", checkCred);
       Signoutbtn.addEventListener("click", Signout);
+    </script>
+    <style>
+      .user-info-dialog {
+        display: none; /* Initially hide the dialog */
+        position: absolute;
+        /* top:110px; */
+        transform: translate(-40%, -5%);
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Show the dialog when hovering over the parent element */
+      .user-info-container:hover .user-info-dialog {
+        display: block;
+      } 
+  </style>
+    <script>
+
+      const userData=sessionStorage.getItem('user-info');
+      let userCard= document.getElementById("user-icon");
+      userCard.innerHTML=`<div class="user-info-container" style="cursor: pointer; position: relative;">
+                          <img src="images/avatar.png" alt="Avatar" height="50" width="50" style="border-radius: 9999px; margin-top: 20px; margin-left: 15px; margin-right: 10px;" />
+                          <div class="user-info-dialog" style="text-align: center;">
+                            <p>${JSON.parse(userData)["firstname"]} ${JSON.parse(userData)["lastname"]}</p>
+                            <p>${JSON.parse(userData)["email"]}</p>
+                            <li>
+                            <a href="/index.html"
+                              ><button class="smoothScroll" type="button" id="Signoutbutton">
+                                Sign Out
+                              </button></a
+                            >
+                            </li>
+                          </div>
+                        </div>`;
     </script>
   </body>
 </html>
