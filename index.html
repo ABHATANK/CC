@@ -135,9 +135,9 @@
                   sessionStorage.setItem(
                     "user-info",
                     JSON.stringify({
-                      firstname: snapshot.val().firstname,
-                      lastname: snapshot.val().lastname,
-                      email: snapshot.val().email,
+                      firstname: snapshot.val()?.firstname,
+                      lastname: snapshot.val()?.lastname,
+                      email: snapshot.val()?.email,
                     })
                   );
                   sessionStorage.setItem(

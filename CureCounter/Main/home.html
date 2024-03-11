@@ -621,15 +621,17 @@
         if (!sessionStorage.getItem("user-creds"))
           window.location.href = "../../index.html";
         else {
-          MsgHead.innerText = `user with email "${UserCreds.email}" Logged In`;
-          GreetHead.innerText = `Welcome ${
-            UserInfo.firstname + " " + UserInfo.lastname
-          }!`;
+          if(MsgHead)
+            MsgHead.innerText = `user with email "${UserCreds.email}" Logged In`;
+            if(GreetHead)
+            GreetHead.innerText = `Welcome ${
+              UserInfo.firstname + " " + UserInfo.lastname
+            }!`;
         }
       };
 
       window.addEventListener("load", checkCred);
-      Signoutbtn.addEventListener("click", Signout);
+      Signoutbtn?.addEventListener("click", Signout);
     </script>
     <style>
       .user-info-dialog {
